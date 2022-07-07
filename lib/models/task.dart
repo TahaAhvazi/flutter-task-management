@@ -2,7 +2,13 @@
 import 'package:equatable/equatable.dart';
 import 'package:uuid/uuid.dart';
 
-Uuid _uuid = Uuid();
+enum Filtred {
+  all,
+  active,
+  completed,
+}
+
+Uuid _uuid = const Uuid();
 
 class Task extends Equatable {
   final String id;
@@ -16,12 +22,10 @@ class Task extends Equatable {
   }) : id = id ?? _uuid.v4();
 
   @override
-  // TODO: implement props
   List<Object?> get props => [id, description, completed];
 
   @override
   String toString() {
-    // TODO: implement toString
     return "Task(ID: $id DESCRIPTION: $description COMPLETED: $completed)";
   }
 }
